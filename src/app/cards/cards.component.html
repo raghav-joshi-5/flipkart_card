@@ -1,0 +1,81 @@
+<div class="card mb-5 cardbg" *ngFor="let laptop of laptopProduct">
+  <div class="card-body" [ngClass]="{ notaval: !laptop.isAvailable }">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- this is for {ngIf else} using for show images from backend placeholder image -->
+        <!-- <img
+          *ngIf="laptop.imagePath; else imgtempref"
+          [src]="laptop.imagePath"
+          [alt]="laptop.brand"
+          [title]="laptop.brand"
+          class="img-fluid mobileImg"
+        />
+        <ng-template #imgtempref>
+          <img
+            class="img-fluid mobileImg"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAP1BMVEWqqqr///+np6ekpKSxsbHu7u6hoaHLy8vj4+PW1tbHx8f6+vqtra3x8fG/v7+8vLzZ2dno6Oi3t7ff39/Pz8+nD6mnAAAESUlEQVR4nO2Y25KsKBBFNbHwglap5f9/60gmIF2n50TMixUxsdZDh9hAsdlJAjYNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPw/EZHP8h8v/nsXf+/yTsRPfb/7MgAnr74/vCv/d93PCr/0sPf9VLXwXd/3nbu6nF8/KtyKdGurrPn3H1YeOhugey72ov83idIHrbCkFn60Bsvkfv7ENn/BR+nazKOLL+ZQXrzieOQo5e13D9yWK4QptnBrabGqousn2u42YYXq11WBX65ykI8K628WXAJNQTUlbfs8W7iqy9bfLdAN6t50BDNNXjqOaXqkuLQK70mHHX4Zn7UIh7UYXOO1q3HSUH24XGGaQomLO5l1GP5MJvHhEBPUiejEn6bq+7cTN6lymbuItrUnp8rOrOLjwyLyVIFni9FM1QrhTKZNMMm3YhEVn9w4DEMv3gRlc2cb7yvH2ua0HFtIr09O5+hw0cyzh7c1jPFtTXsTNrj8Y/O9CnU40UJDzNNRcvA9zYgYnM4ssjQSndCg22XXKXClB12WITrlTVqXhKY5uTlM1Zj3Pi4hjE0ZxHQ54DWNxPGKejOnzPPyb1t2oor9OITwfsZ6rm1T1nUalX4qXb6y1jsVxkHk7eHcEE2hLjP1ZvVl7UhaVmZaeKVotdcpWz6ywlF3DV2hfi1dlgC5k2vzs/RwKdR9cbD0oQrzv2x3UE3nXiDvuocz2VYK1XU/li79FxTmzS4J3SuF+q/B5zRR2euynvg+74bBulilUrhZAOvfpqntvQ87wGyz7xaL048oNYU/PWxkSgqLUXFdWrgGuYxKUfpdD3VlxAmWRkPPfUTp+Oc6rFRdCuPRxQ8m9TNKj1L3G+vQlSC0fdmMepbEd+g6vHJpUmiRqYdQKUFo1k6+LV3GuFgsl75Kl99WaLrKcF7unQWko0lTRakW1qLQZueK67SGyx5xTd+dCqMx26WwKWca82a/Dj2y5HgtCfjh876pFXTlPi024wvbb9KhR/KZ5ubbhdlxnkTsEvVwGlnxRKJbffAm4DyUSZcH6tL9MTmjeuOpLR1QTUfcR/KBT031OWpvvwWrsN03m43YrFu95YdBzLo2VzjHa+G7dSF5Z6mm915jcEln9aXzc4rk0mVfVuidyHVbtYmeq7IesOvbXjTAttDOzqdv9/MCqSeCoSpHlz8r3C2xup5qDp2usl546ytxl4unE7bvn2Fbz4E6VH0lsMxUVTi+8RmjTLlm/3wrigb5jznoJIVce01FXF9FwaAtZM8Sg/3EVeH4yrco9xweJ33+libNsZzldc+j8blCLOz9ya4b+qSPsUU3xgpjV1pM21nepvxJoFT40gdFEbvZXS8+y/WL68OnVI+/9fC3LgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/8Q/1FIhStVcrYIAAAAASUVORK5CYII="
+            [alt]="laptop.brand"
+            [title]="laptop.brand"
+          />
+        </ng-template> -->
+
+        <!-- this is for showing original image and image from backend using or operator -->
+        <!-- <img
+          [src]="
+            laptop.imagePath ||
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAP1BMVEWqqqr///+np6ekpKSxsbHu7u6hoaHLy8vj4+PW1tbHx8f6+vqtra3x8fG/v7+8vLzZ2dno6Oi3t7ff39/Pz8+nD6mnAAAESUlEQVR4nO2Y25KsKBBFNbHwglap5f9/60gmIF2n50TMixUxsdZDh9hAsdlJAjYNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPw/EZHP8h8v/nsXf+/yTsRPfb/7MgAnr74/vCv/d93PCr/0sPf9VLXwXd/3nbu6nF8/KtyKdGurrPn3H1YeOhugey72ov83idIHrbCkFn60Bsvkfv7ENn/BR+nazKOLL+ZQXrzieOQo5e13D9yWK4QptnBrabGqousn2u42YYXq11WBX65ykI8K628WXAJNQTUlbfs8W7iqy9bfLdAN6t50BDNNXjqOaXqkuLQK70mHHX4Zn7UIh7UYXOO1q3HSUH24XGGaQomLO5l1GP5MJvHhEBPUiejEn6bq+7cTN6lymbuItrUnp8rOrOLjwyLyVIFni9FM1QrhTKZNMMm3YhEVn9w4DEMv3gRlc2cb7yvH2ua0HFtIr09O5+hw0cyzh7c1jPFtTXsTNrj8Y/O9CnU40UJDzNNRcvA9zYgYnM4ssjQSndCg22XXKXClB12WITrlTVqXhKY5uTlM1Zj3Pi4hjE0ZxHQ54DWNxPGKejOnzPPyb1t2oor9OITwfsZ6rm1T1nUalX4qXb6y1jsVxkHk7eHcEE2hLjP1ZvVl7UhaVmZaeKVotdcpWz6ywlF3DV2hfi1dlgC5k2vzs/RwKdR9cbD0oQrzv2x3UE3nXiDvuocz2VYK1XU/li79FxTmzS4J3SuF+q/B5zRR2euynvg+74bBulilUrhZAOvfpqntvQ87wGyz7xaL048oNYU/PWxkSgqLUXFdWrgGuYxKUfpdD3VlxAmWRkPPfUTp+Oc6rFRdCuPRxQ8m9TNKj1L3G+vQlSC0fdmMepbEd+g6vHJpUmiRqYdQKUFo1k6+LV3GuFgsl75Kl99WaLrKcF7unQWko0lTRakW1qLQZueK67SGyx5xTd+dCqMx26WwKWca82a/Dj2y5HgtCfjh876pFXTlPi024wvbb9KhR/KZ5ubbhdlxnkTsEvVwGlnxRKJbffAm4DyUSZcH6tL9MTmjeuOpLR1QTUfcR/KBT031OWpvvwWrsN03m43YrFu95YdBzLo2VzjHa+G7dSF5Z6mm915jcEln9aXzc4rk0mVfVuidyHVbtYmeq7IesOvbXjTAttDOzqdv9/MCqSeCoSpHlz8r3C2xup5qDp2usl546ytxl4unE7bvn2Fbz4E6VH0lsMxUVTi+8RmjTLlm/3wrigb5jznoJIVce01FXF9FwaAtZM8Sg/3EVeH4yrco9xweJ33+libNsZzldc+j8blCLOz9ya4b+qSPsUU3xgpjV1pM21nepvxJoFT40gdFEbvZXS8+y/WL68OnVI+/9fC3LgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg/8Q/1FIhStVcrYIAAAAASUVORK5CYII='
+          "
+          [alt]="laptop.brand"
+          [title]="laptop.brand"
+          class="img-fluid mobileImg"
+        /> -->
+
+        <!-- this is for showing image or text message from backend -->
+        <img
+          *ngIf="laptop.imagePath; else imgtempref"
+          [src]="laptop.imagePath"
+          [alt]="laptop.brand"
+          [title]="laptop.brand"
+          class="img-fluid mobileImg"
+        />
+        <ng-template #imgtempref>
+          <p class="noImgmsg text-muted">product image is not available</p>
+        </ng-template>
+        <div class="col-12">
+          <p *ngIf="!laptop.isAvailable" class="alert alert-danger">
+            Not Available
+          </p>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h3 class="mb-4">
+          {{ laptop.brand }} {{ laptop.model }} ({{ laptop.storage }})
+          <small
+            class="p-2 text-white badge badge-pill"
+            [ngClass]="{
+              'badge-success': laptop.rating >= 4,
+              'badge-warning': laptop.rating >= 3 && laptop.rating <= 4,
+              'badge-danger': laptop.rating < 3
+            }"
+            >{{ laptop.rating }}
+            <img
+              class="starinfo"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+              alt="star"
+            />
+          </small>
+        </h3>
+        <ul class="list-group liinfo">
+          <li *ngFor="let lap of laptop.specification" class="list-group-item">
+            {{ lap }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h3>Rs.{{ laptop.offerPrice }}/-</h3>
+
+        <h4 class="striked">Rs.{{ laptop.price }}/-</h4>
+      </div>
+    </div>
+  </div>
+</div>
